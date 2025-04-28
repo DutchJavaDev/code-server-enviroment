@@ -1,0 +1,11 @@
+services:
+  code-server:
+    image: custom_code_server_enviroment
+    container_name: code-server
+    # user: "1000:1000"  # Uncomment if needed
+    env_file: "/home/admin/docker-env/code-server.env"
+    volumes:
+      - /home/admin/projects:/config
+    ports:
+      - "8443:8443"
+    restart: unless-stopped
